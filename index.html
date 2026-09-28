@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JCD PREMIUM PERFUMES | Haute Parfumerie & Extrait de Parfum</title>
+  <meta name="description" content="Handcrafted haute parfumerie presented in solid silver and midnight sapphire crystal flacons, encased in bespoke crushed velvet caskets by JCD." />
+
+  <!-- Supabase JS Client CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- Master Luxury Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Top Luxury Announcement Ribbon -->
+  <div class="top-announcement">
+    <span>✦ JCD PREMIUM PERFUMES • COMPLIMENTARY ROYAL SILVER CASKET PACKAGING & WHITE-GLOVE INSURED DELIVERY ✦</span>
+    <span class="badge-silver">DIRECT IN-APP ORDERING</span>
+  </div>
+
+  <!-- Main Luxury Navigation Bar -->
+  <header class="luxury-navbar">
+    <div class="container">
+      <div class="nav-wrapper">
+        <!-- Brand Emblem -->
+        <a href="index.html" class="brand-emblem">
+          <div class="brand-icon-silver">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <div>
+            <div class="brand-title"><span class="silver-text">JCD</span> PERFUMES</div>
+            <div class="brand-subtitle">Haute Parfumerie • Luxury Edition</div>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#catalog" class="nav-link">The Collection</a></li>
+          <li><a href="#packaging" class="nav-link">The Packaging Art</a></li>
+          <li><a href="#tracking" class="nav-link">Track Royal Order</a></li>
+          <li><a href="admin.html" class="nav-admin-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg>
+            Admin Vault
+          </a></li>
+        </ul>
+
+        <!-- Navigation Action Buttons -->
+        <div class="nav-actions">
+          <!-- Supabase Connection Indicator Icon -->
+          <div id="supabase-status-indicator" title="Checking Supabase Cloud..." style="font-size: 0.8rem; cursor: pointer; display: flex; align-items: center; gap: 0.35rem; color: #38BDF8;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M21.362 9.354H12V.396a.396.396 0 0 0-.716-.234L.357 13.916a.396.396 0 0 0 .313.642H12v9.046a.396.396 0 0 0 .716.234l10.927-13.754a.396.396 0 0 0-.281-.73z"/></svg>
+            <span style="font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase;">Cloud Live</span>
+          </div>
+
+          <!-- Cart Trigger -->
+          <button class="nav-btn-icon" onclick="openCartDrawer()" title="View Luxury Bag">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span class="cart-count-badge" id="cart-badge-count" style="display: none;">0</span>
+          </button>
+
+          <!-- Mobile Hamburger -->
+          <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation">
+            ☰
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section: Silver & Sapphire Experience -->
+  <section class="hero-section">
+    <div class="hero-background-glow"></div>
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-crest-badge">
+            <span class="dot"></span>
+            <span>Silver & Sapphire Imperial Edition</span>
+          </div>
+
+          <h1 class="hero-title">
+            The Scent of <span class="silver-text">Royalty</span> &amp; <span class="sapphire-text">Pure Silver</span>
+          </h1>
+
+          <p class="hero-description">
+            Extraits de Parfum concentrated at an unprecedented 35% oil purity. Bottled within hand-polished silver flacons, resting inside crush-resistant midnight sapphire velvet caskets with master-embossed authenticity certificates.
+          </p>
+
+          <div class="hero-features-list">
+            <div class="hero-feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>35% Pure Oil Extrait</span>
+            </div>
+            <div class="hero-feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Heavy Silver Alloy Cap</span>
+            </div>
+            <div class="hero-feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Midnight Velvet Casket</span>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#catalog" class="btn btn-silver">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              Explore Royal Vault
+            </a>
+            <a href="#packaging" class="btn btn-outline-silver">
+              The Packaging Art
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Showcase Flacon Card -->
+        <div class="hero-visual">
+          <div class="hero-frame-card">
+            <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=800&q=80" alt="Sovereign Silver Oud Flacon" class="hero-bottle-img" />
+
+            <div class="hero-floating-badge badge-top-right">
+              <div class="floating-label">Flacon Finish</div>
+              <div class="floating-value">Solid Silver &amp; Sapphire</div>
+            </div>
+
+            <div class="hero-floating-badge badge-bottom-left">
+              <div class="floating-label">Complimentary</div>
+              <div class="floating-value">Velvet Casket &amp; Seal</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Expensive Packaging Experience Showcase -->
+  <section class="packaging-experience" id="packaging">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Excellence in Every Detail</span>
+        <h2 class="section-title">The Art of <span class="silver-text">Expensive Packaging</span></h2>
+        <p class="section-desc">
+          True luxury is not merely the fragrance, but the ritual of unboxing. Every bottle from JCD arrives in an architectural silver &amp; midnight blue presentation suite.
+        </p>
+      </div>
+
+      <div class="packaging-grid">
+        <!-- Step 1 -->
+        <div class="packaging-card">
+          <span class="packaging-step-num">01 / CAP</span>
+          <div class="packaging-icon-wrapper">
+            <svg viewBox="0 0 24 24" stroke-width="1.8"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          </div>
+          <h3 class="packaging-card-title">Machined Silver Alloy Cap</h3>
+          <p class="packaging-card-desc">
+            Heavyweight zinc-silver alloy magnetic cap, mirror-polished and precision-machined with our imperial crest engraving.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="packaging-card">
+          <span class="packaging-step-num">02 / GLASS</span>
+          <div class="packaging-icon-wrapper">
+            <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+          </div>
+          <h3 class="packaging-card-title">French Sapphire Crystal</h3>
+          <p class="packaging-card-desc">
+            High-density French flint glass featuring an ombré transition from midnight sapphire navy to crystalline purity.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="packaging-card">
+          <span class="packaging-step-num">03 / CASKET</span>
+          <div class="packaging-icon-wrapper">
+            <svg viewBox="0 0 24 24" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+          </div>
+          <h3 class="packaging-card-title">Midnight Velvet Casket</h3>
+          <p class="packaging-card-desc">
+            Rigid keepsake presentation box wrapped in midnight navy crush-proof velvet with a silver satin pull-ribbon.
+          </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="packaging-card">
+          <span class="packaging-step-num">04 / SEAL</span>
+          <div class="packaging-icon-wrapper">
+            <svg viewBox="0 0 24 24" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><path d="m4.93 4.93 4.24 4.24"></path><path d="m14.83 9.17 4.24-4.24"></path><path d="m14.83 14.83 4.24 4.24"></path><path d="m9.17 14.83-4.24 4.24"></path><circle cx="12" cy="12" r="4"></circle></svg>
+          </div>
+          <h3 class="packaging-card-title">Silver Wax Authenticity</h3>
+          <p class="packaging-card-desc">
+            Hand-stamped silver wax seal on heavy cotton archival paper, signed with the individual bottle batch and serial number.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Catalog Section -->
+  <section class="catalog-section" id="catalog">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Private Extrait Collection</span>
+        <h2 class="section-title">The Royal <span class="silver-text">Olfactory Vault</span></h2>
+        <p class="section-desc">
+          Select your signature fragrance. Every order is directly placed and recorded in our private vault without external redirects.
+        </p>
+      </div>
+
+      <!-- Filters & Live Search Bar -->
+      <div class="catalog-filter-bar">
+        <div class="filter-categories">
+          <button class="filter-btn active" data-category="all">All Creations</button>
+          <button class="filter-btn" data-category="Oud & Woods">Oud &amp; Woods</button>
+          <button class="filter-btn" data-category="Amber & Florals">Amber &amp; Florals</button>
+          <button class="filter-btn" data-category="Aqua & Citrus">Aqua &amp; Citrus</button>
+          <button class="filter-btn" data-category="Private Blend">Private Blend</button>
+        </div>
+
+        <div class="catalog-search-box">
+          <svg class="catalog-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="catalog-search-input" class="catalog-search-input" placeholder="Search by name or fragrance note..." />
+        </div>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid" id="products-grid">
+        <!-- Rendered dynamically by js/app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Live In-Website Order Tracking Section -->
+  <section class="order-tracking-section" id="tracking">
+    <div class="container">
+      <div class="tracking-card-container">
+        <span class="section-subtitle">Real-Time Dispatch Ledger</span>
+        <h2 style="font-size: 2rem; margin-bottom: 0.8rem; color: #FFF;">Track Your <span class="silver-text">Royal Delivery</span></h2>
+        <p style="font-size: 0.9rem; color: var(--silver-muted); max-width: 580px; margin: 0 auto;">
+          Enter your unique Order Reference Number (e.g. <code>JCD-892415</code>) to verify the live crafting, packaging, and dispatch stage of your parcel.
+        </p>
+
+        <div class="tracking-input-group">
+          <input type="text" id="order-tracking-input" class="tracking-input" placeholder="e.g. JCD-892415" />
+          <button class="btn btn-silver" onclick="trackOrder()">
+            Inspect Status
+          </button>
+        </div>
+
+        <!-- Tracking Results Container -->
+        <div id="tracking-result-box" class="tracking-result-box"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Luxury Slide-Over Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay" onclick="closeCartDrawer()"></div>
+  <aside class="cart-drawer" id="cart-drawer">
+    <div class="cart-header">
+      <div class="cart-header-title">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+        <span>Your Royal Bag</span>
+      </div>
+      <button class="close-drawer-btn" onclick="closeCartDrawer()">&times;</button>
+    </div>
+
+    <div class="cart-body">
+      <!-- Items Container -->
+      <div id="cart-items-container"></div>
+
+      <!-- Free Sample Selector & Complimentary Packaging Ribbon -->
+      <div class="cart-addons-box">
+        <div class="addons-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span>Choose Free 3ml Luxury Sample</span>
+        </div>
+        <select id="free-sample-select" class="sample-select"></select>
+
+        <label class="luxury-gift-toggle-row">
+          <input type="checkbox" id="luxury-gift-toggle" checked style="accent-color: #38BDF8;" />
+          <span>Complimentary Midnight Velvet Casket &amp; Calligraphy Gift Card</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-summary-line">
+        <span>Vault Subtotal:</span>
+        <span id="cart-subtotal-val" style="color: #FFF; font-weight: 600;">Rs. 0</span>
+      </div>
+      <div class="cart-summary-line">
+        <span>Insured White-Glove Courier:</span>
+        <span style="color: var(--sapphire-neon); font-weight: 600;">FREE (COMPLIMENTARY)</span>
+      </div>
+      <div class="cart-summary-total">
+        <span>Total Acquisition:</span>
+        <span id="cart-total-val" class="silver-text">Rs. 0</span>
+      </div>
+
+      <button id="cart-checkout-btn" class="btn btn-silver" onclick="openCheckout()" style="width: 100%; padding: 1rem;">
+        Proceed to Secure Checkout
+      </button>
+    </div>
+  </aside>
+
+  <!-- In-Website Direct Checkout Modal (NO WhatsApp!) -->
+  <div class="modal-overlay" id="checkout-modal">
+    <div class="checkout-modal-content">
+      <div class="modal-header">
+        <h3 class="modal-header-title">Secure Vault Checkout</h3>
+        <button class="close-drawer-btn" onclick="closeCheckout()">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="checkout-grid">
+          <!-- Checkout Form -->
+          <div>
+            <form id="checkout-form" onsubmit="submitOrder(event)">
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label">Full Name *</label>
+                  <input type="text" id="order-name" class="form-input" placeholder="e.g. Lord Alexander Wright" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Phone Number *</label>
+                  <input type="tel" id="order-phone" class="form-input" placeholder="e.g. 0300 1234567" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Email Address (For Tracking Confirmation)</label>
+                <input type="email" id="order-email" class="form-input" placeholder="e.g. alexander@luxury.com" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Complete Delivery Address *</label>
+                <input type="text" id="order-address" class="form-input" placeholder="House/Apartment #, Street, Block, Area" required />
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label">City *</label>
+                  <input type="text" id="order-city" class="form-input" placeholder="e.g. Lahore / Karachi / Islamabad" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Postal / Zip Code</label>
+                  <input type="text" id="order-postal" class="form-input" placeholder="e.g. 54000" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Special Delivery Instructions (Optional)</label>
+                <input type="text" id="order-notes" class="form-input" placeholder="e.g. Deliver between 2pm-6pm, gate security code..." />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Complimentary Gift Card Message (Silver Inked)</label>
+                <textarea id="order-gift-msg" class="form-textarea" rows="2" placeholder="Write a personalized note for the recipient..."></textarea>
+              </div>
+
+              <!-- Payment Method Selection -->
+              <div class="form-group">
+                <label class="form-label">Select Payment Method</label>
+                <div class="payment-methods-grid">
+                  <div class="payment-method-card active" data-method="Cash on Delivery (COD)" onclick="selectPaymentMethod('Cash on Delivery (COD)')">
+                    <span class="payment-title">Cash on Delivery</span>
+                    <span class="payment-subtitle">Pay upon receiving package</span>
+                  </div>
+                  <div class="payment-method-card" data-method="Direct Bank Transfer / Card" onclick="selectPaymentMethod('Direct Bank Transfer / Card')">
+                    <span class="payment-title">Bank Transfer / Card</span>
+                    <span class="payment-subtitle">Direct Account Deposit</span>
+                  </div>
+                </div>
+
+                <!-- Bank Account Details (Shown if Bank Transfer chosen) -->
+                <div id="bank-details-box" class="bank-details-box" style="display: none;">
+                  <strong>Bank:</strong> Meezan Bank Ltd (Islamic Banking)<br />
+                  <strong>Account Title:</strong> JCD PREMIUM PERFUMES<br />
+                  <strong>IBAN:</strong> PK72MEZN0001092837482901<br />
+                  <div style="margin-top: 0.5rem;">
+                    <label class="form-label" style="font-size: 0.7rem;">Enter Transaction ID / Reference (Optional):</label>
+                    <input type="text" id="order-payment-ref" class="form-input" placeholder="e.g. TXN-894201" />
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" id="order-submit-btn" class="btn btn-silver" style="width: 100%; padding: 1.1rem; margin-top: 1.5rem; font-size: 0.95rem;">
+                Place Royal Order
+              </button>
+            </form>
+          </div>
+
+          <!-- Checkout Order Summary Card -->
+          <div>
+            <div class="checkout-summary-card">
+              <h4 style="font-size: 0.95rem; letter-spacing: 0.12em; color: var(--silver-pure); text-transform: uppercase; margin-bottom: 0.8rem;">
+                Acquisition Summary
+              </h4>
+
+              <div id="checkout-items-list" class="checkout-items-list"></div>
+
+              <div style="border-top: 1px solid rgba(148, 163, 184, 0.15); padding-top: 0.9rem; margin-top: 0.9rem;">
+                <div class="cart-summary-line">
+                  <span>Free Sample:</span>
+                  <span id="checkout-sample-note" style="color: var(--sapphire-neon); font-size: 0.78rem;">Included</span>
+                </div>
+                <div class="cart-summary-line">
+                  <span>Midnight Velvet Casket:</span>
+                  <span style="color: var(--silver-light); font-size: 0.78rem;">COMPLIMENTARY</span>
+                </div>
+                <div class="cart-summary-line">
+                  <span>White-Glove Shipping:</span>
+                  <span style="color: var(--sapphire-neon); font-size: 0.78rem;">FREE</span>
+                </div>
+                <div class="cart-summary-total">
+                  <span>Total:</span>
+                  <span id="checkout-total-val" class="silver-text">Rs. 0</span>
+                </div>
+              </div>
+
+              <div style="background: rgba(14, 28, 62, 0.5); border: 1px solid var(--silver-border); border-radius: var(--radius-sm); padding: 0.9rem; font-size: 0.76rem; color: var(--silver-muted); margin-top: 1.2rem; line-height: 1.5;">
+                🔒 <strong>Zero WhatsApp Re-route:</strong> Your order is recorded directly into our authenticated Supabase database and dispatched through insured express transit.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Olfactory Notes & Quick View Modal -->
+  <div class="modal-overlay" id="quickview-modal">
+    <div class="checkout-modal-content" style="max-width: 860px;">
+      <div class="modal-header">
+        <h3 class="modal-header-title">Olfactory Pyramid &amp; Presentation</h3>
+        <button class="close-drawer-btn" onclick="closeQuickView()">&times;</button>
+      </div>
+      <div class="modal-body" id="quickview-modal-body">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Luxury Footer -->
+  <footer class="luxury-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-title"><span class="silver-text">JCD</span> PERFUMES</div>
+          <div class="brand-subtitle">Haute Parfumerie</div>
+          <p class="footer-brand-desc">
+            Masters of pure liquid silver extraction and high-sillage extraits. Every flacon is an individually numbered monument of fragrance alchemy, wrapped in midnight blue and solid silver packaging.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">The Vault</h4>
+          <ul class="footer-links">
+            <li><a href="#catalog">Custom Extraits</a></li>
+            <li><a href="#catalog">Rare Vintage Blends</a></li>
+            <li><a href="#catalog">Oud &amp; Woods</a></li>
+            <li><a href="#catalog">Amber &amp; Florals</a></li>
+            <li><a href="#catalog">Private Reserve</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Client Services</h4>
+          <ul class="footer-links">
+            <li><a href="#tracking">Track Royal Order</a></li>
+            <li><a href="#packaging">Packaging Specifications</a></li>
+            <li><a href="admin.html">Staff &amp; Admin Vault</a></li>
+            <li><a href="#catalog">Bespoke Monogramming</a></li>
+            <li><a href="#catalog">Authenticity Verification</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Privé Newsletter</h4>
+          <p style="font-size: 0.85rem; color: var(--silver-muted); margin-bottom: 0.8rem;">
+            Receive invitations to private bottle vault releases and rare vintage extrait allocations.
+          </p>
+          <div class="newsletter-form">
+            <input type="email" class="newsletter-input" placeholder="Your email address..." />
+            <button class="btn btn-silver" style="padding: 0.65rem 1rem;">Join</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 JCD PREMIUM PERFUMES. All Rights Reserved.</div>
+        <div style="display: flex; gap: 1.5rem;">
+          <span>Pure Extrait de Parfum</span>
+          <span>•</span>
+          <span>Insured White-Glove Dispatch</span>
+          <span>•</span>
+          <span>Direct In-App Verification</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Application Logic Scripts -->
+  <script src="js/perfumes-data.js"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
